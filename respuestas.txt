@@ -1,0 +1,83 @@
+
+
+
+██╗░░██╗███████╗███╗░░██╗██████╗░██╗░░░██╗  ██████╗░██╗  ░░███╗░░
+██║░░██║██╔════╝████╗░██║██╔══██╗╚██╗░██╔╝  ██╔══██╗██║  ░████║░░
+███████║█████╗░░██╔██╗██║██████╔╝░╚████╔╝░  ██████╔╝██║  ██╔██║░░
+██╔══██║██╔══╝░░██║╚████║██╔══██╗░░╚██╔╝░░  ██╔═══╝░██║  ╚═╝██║░░
+██║░░██║███████╗██║░╚███║██║░░██║░░░██║░░░  ██║░░░░░██║  ███████╗
+╚═╝░░╚═╝╚══════╝╚═╝░░╚══╝╚═╝░░╚═╝░░░╚═╝░░░  ╚═╝░░░░░╚═╝  ╚══════╝
+
+
+
+[ * ] Respuestas a las consignas propuestas [ * ]
+
+
+DATA últimos 365 días:
+---------------------
+
+[>] Dia con mayor variacion
+    entre dolar blue y dolar official
+
+2022-07-22
+
+
+[>] Top 5 dias con mayor volatilidad
+    comparando el dolar blue con el oficial
+
+Dolar blue                        Dolar Oficial
+----------                        -------------
+        date  volatility                  date  volatility
+0 2022-07-04    0.084218          0 2022-04-18    0.006620
+1 2022-07-21    0.061181          1 2022-06-21    0.006407
+2 2022-07-08    0.060396          2 2022-08-01    0.005396
+3 2022-07-29    0.059034          3 2022-07-18    0.005211
+4 2022-07-20    0.051792          4 2022-07-25    0.004920
+
+
+
+[>] Semana con mayor variación en la brecha
+
+Desde 2022-07-18 hasta 2022-07-22
+Con una variacion de 34.72%
+
+
+
+[>] Día de la semana donde hay mayor variación
+    en la brecha el ultimo año
+                   v
+date                
+Miercoles  93.742204
+Jueves     93.615828
+Viernes    92.570404
+Martes     92.120416
+Lunes      91.474823
+
+
+Regresion Lineal
+----------------
+
+[>] Dolar blue
+
+Error en Train: 0.26 
+Error en Test: 0.26 
+Score test: 0.86 
+Score train: 0.87 
+
+Prediccion a 3 meses: 85.95
+Prediccion a 6 meses: 90.52
+Prediccion a 12 meses: 100.23
+
+
+[>] Dolar oficial
+
+Error en Train: 0.23 
+Error en Test: 0.24 
+Score test: 0.84 
+Score train: 0.83 
+
+Prediccion a 3 meses: 58.22
+Prediccion a 6 meses: 60.99
+Prediccion a 12 meses: 66.83
+
+
