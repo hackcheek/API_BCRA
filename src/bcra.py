@@ -6,7 +6,6 @@ from src.regression import regression
 from src.dataclass import Data
 
 
-
 def main() -> None:
     """
     Funcion que muestra por pantalla las consignas,
@@ -42,19 +41,23 @@ def main() -> None:
     out_d: str = d(data.var_usd_vs_usd_of).to_string()
 
     # Regresion sobre el dolar blue
-    out_reg_blue: str = regression(data.usd, 3, verbose=True, save_plot='blue_regresion')
+    out_reg_blue: str = regression(
+        data.usd, 3, verbose=True, save_plot="blue_regresion"
+    )
     out_reg_blue += "\n" + regression(data.usd, 6)
     out_reg_blue += "\n" + regression(data.usd, 12)
 
     # Regresion sobre el dolar oficial
-    out_reg_of: str = regression(data.usd_of, 3, verbose=True, save_plot='oficial_regresion')
+    out_reg_of: str = regression(
+        data.usd_of, 3, verbose=True, save_plot="oficial_regresion"
+    )
     out_reg_of += "\n" + regression(data.usd_of, 6)
     out_reg_of += "\n" + regression(data.usd_of, 12)
 
     print(STDOUT.format(out_a, out_b, out_c, out_d, out_reg_blue, out_reg_of))
 
     # Plot comparativo entre los eventos y el dolar
-    dolar_events_plot(data, True)
+    dolar_events_plot(data)
 
 
 if __name__ == "__main__":

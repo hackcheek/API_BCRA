@@ -91,10 +91,12 @@ def regression(
         plt.legend(loc="upper left")
 
         if save_plot:
-            plt.savefig(f"../plots/{save_plot}.png")
+            plt.savefig(f"./plots/{save_plot}.png")
         elif plot:
             plt.show()
-        plt.cla()
+        # plt.cla()
+        # plt.clf()
+        plt.close()
 
     if verbose:
         return (

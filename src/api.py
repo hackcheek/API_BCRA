@@ -38,6 +38,41 @@ class AsyncRequest:
 
 
 class API:
+    """
+    Este objeto es el encargado de interactuar con el API
+
+    Parameters
+    ----------
+    token: string (Default TOKEN)
+        Token de autenticacion requerido
+        para hacer las consultas
+
+    Attributes
+    ----------
+    header: dict
+        Este diccionario contiene el token de autenticacion
+    data: dict
+        Este payload contiene la data de las requests
+    site: string
+        Sitio web o url principal de nuestra API
+
+    Methods
+    -------
+    :: query
+        parameter:
+            *points: string
+                Este parametro recibe las palabras clave
+                de cada endpoint que quiera ser llamado
+
+        Return:
+        Este metodo retorna una lista con las
+        respuestas (response) del API en formato json
+
+    :: jupyter_query
+        :: Lo mismo que el metodo query, solo que este
+           habilita la posibilidad de correr el codigo
+           en jupyter
+    """
 
     token: str = ""
     header: dict = {}
@@ -81,4 +116,23 @@ class API:
         >>> data
         [...responses...]
         """
+
         return asyncio.run(cls._request(points))
+
+    @classmethod
+    def jupyter_query(cls, *points: Endpoints):
+        """
+        Para leer esta documentacion debe hacer
+        >>> api().query().__doc__
+
+        ya que este metodo es solo una copia del metodo query,
+        con la diferencia de que este solo funciona en jupyter
+        """
+        import requests
+
+        return [
+            requests.get(
+                cls.site + p, headers=cls.header, data=cls.data
+            ).json()
+            for p in points
+        ]

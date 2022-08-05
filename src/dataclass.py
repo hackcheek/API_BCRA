@@ -80,17 +80,20 @@ class Data(dict):
         super(Data, self).__init__(*args, **kwargs)
         self.__dict__ = self
 
-    def call_api(self, *points: Endpoints):
+    def call_api(self, *points: Endpoints, jupyter: bool = False):
         """
         Extraer la data proveniente
         de la API estadisticasbcra.com
 
         Parameter
         ---------
-        points : list of strings
+        points: list of strings
             Este debe contener una lista con los endpoints
             correspondientes a el API
             https://estadisticasbcra.com/api/documentacion
+        jupyter: bool (default False)
+            Habilita las consultas en jupyter a costa de codigo
+            NO asyncronico
 
         Examples
         --------
@@ -111,7 +114,11 @@ class Data(dict):
         """
         if not self.__dict__:
             api: API = API()
-            resp = api.query(*points)
+
+            if jupyter:
+                resp = api.jupyter_query(*points)
+            else:
+                resp = api.query(*points)
 
             content: list[pd.DataFrame] = [to_dataframe(json) for json in resp]
 

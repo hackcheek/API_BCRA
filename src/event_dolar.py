@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
-from src.bcra import Data
+from src.dataclass import Data
 
 
 def dolars_month_gen(data: Data) -> pd.DataFrame:
@@ -59,11 +59,11 @@ def dolar_events_plot(data: Data, plot: bool = False) -> None:
         .dropna()
     ).rename(columns={"e": "nombre", "t": "entidad"})
 
-
     # borro registros de antes del 2002 07 -- Cuidado! recursivo
     politic_month = politic_month.drop(index=np.arange(0, 20)).reset_index(
         drop=True
     )
+
 
     colors = {
         "econ": "royalblue",
@@ -98,9 +98,15 @@ def dolar_events_plot(data: Data, plot: bool = False) -> None:
     ax2.set_yticks([5, 10, 20, 40, 80, 160, 300])
     ax2.get_yaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
 
+    ax2.legend(
+        ['Dolar Blue', 'Dolar Oficial'],
+        loc='lower right', frameon=True
+    )
+
     plt.xlabel("Dolar vs Eventos politicos")
     plt.savefig("../plots/dolar_events.png")
 
     if plot:
         plt.show()
     plt.cla()
+    plt.clf()

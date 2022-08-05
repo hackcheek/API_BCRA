@@ -74,3 +74,12 @@ week_var_template: str = """\
 Desde %s hasta %s
 Con una variacion de %.2f%%
 """
+
+
+def test_docs():
+    """
+    Documentacion.
+    Esto es una prueba, intenta con otras funciones
+
+    >>> func().__doc__
+    """
