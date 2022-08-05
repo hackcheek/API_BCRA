@@ -64,7 +64,6 @@ def dolar_events_plot(data: Data, plot: bool = False) -> None:
         drop=True
     )
 
-
     colors = {
         "econ": "royalblue",
         "bcra": "cornflowerblue",
@@ -99,8 +98,7 @@ def dolar_events_plot(data: Data, plot: bool = False) -> None:
     ax2.get_yaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
 
     ax2.legend(
-        ['Dolar Blue', 'Dolar Oficial'],
-        loc='lower right', frameon=True
+        ["Dolar Blue", "Dolar Oficial"], loc="lower right", frameon=True
     )
 
     plt.xlabel("Dolar vs Eventos politicos")
